@@ -1,0 +1,3 @@
+﻿using Solutions;
+
+SolutionRunner.RunLast();
