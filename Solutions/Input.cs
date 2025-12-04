@@ -15,7 +15,7 @@ internal class Input(string text)
         return ToMatrix(character => (int)char.GetNumericValue(character));
     }
 
-    private Matrix<T> ToMatrix<T>(Func<char, T> transformation)
+    public Matrix<T> ToMatrix<T>(Func<char, T> transformation)
     {
         var height = Lines.Length;
         var width = Lines[0].Length;

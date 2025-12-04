@@ -15,6 +15,18 @@ internal class Matrix<T>(int width, int height) : IEnumerable<(T Value, int X, i
         set => values[x, y] = value;
     }
 
+    public T? GetOrDefault(int x, int y)
+    {
+        if (!IsInside(x, y))
+        {
+            return default;
+        }
+
+        return values[x, y];
+    }
+
+    public bool IsInside(int x, int y) => x >= 0 && x < Width && y >= 0 && y < Height;
+
     public IEnumerator<(T Value, int X, int Y)> GetEnumerator()
     {
         for (var y = 0; y < Height; y++)
