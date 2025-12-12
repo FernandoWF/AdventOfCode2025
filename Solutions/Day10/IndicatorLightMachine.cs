@@ -2,14 +2,14 @@
 
 namespace Solutions.Day10;
 
-internal class Machine
+internal class IndicatorLightMachine
 {
     private uint currentState;
     private readonly uint targetState;
     private readonly Button[] buttons;
     private readonly Dictionary<int, bool> pressStateByButtonIndex;
 
-    public Machine(string rawDiagram, IReadOnlyCollection<string> rawButtons)
+    public IndicatorLightMachine(string rawDiagram, IReadOnlyCollection<string> rawButtons)
     {
         var rawDiagramContents = rawDiagram[1..(rawDiagram.Length - 1)];
 
@@ -24,11 +24,11 @@ internal class Machine
         buttons = rawButtons
             .Select(rawButton =>
             {
-                var indexesToPress = rawButton[1..(rawButton.Length - 1)]
+                var indexesToToggle = rawButton[1..(rawButton.Length - 1)]
                     .Split(',')
                     .Select(int.Parse)
                     .ToArray();
-                return new Button(indexesToPress);
+                return new Button(indexesToToggle);
             })
             .ToArray();
 
@@ -105,9 +105,9 @@ internal class Machine
     {
         var button = buttons[buttonIndex];
 
-        for (var indexIndex = 0; indexIndex < button.IndexesToToggle.Count; indexIndex++)
+        for (var indexIndex = 0; indexIndex < button.IndexesToChange.Count; indexIndex++)
         {
-            var bitIndex = button.IndexesToToggle[indexIndex];
+            var bitIndex = button.IndexesToChange[indexIndex];
             currentState ^= 1u << bitIndex;
         }
     }

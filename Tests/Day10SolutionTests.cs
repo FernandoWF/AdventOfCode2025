@@ -20,6 +20,6 @@ public class Day10SolutionTests
     [Fact]
     public void RunPart2_ExampleInput_ReturnsCorrectOutput()
     {
-        Assert.Equal(string.Empty, Solution.RunPart2(ExampleInput));
+        Assert.Equal(33, Solution.RunPart2(ExampleInput));
     }
 }

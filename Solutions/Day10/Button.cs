@@ -1,6 +1,6 @@
 ﻿namespace Solutions.Day10;
 
-internal class Button(IReadOnlyList<int> indexesToToggle)
+internal class Button(IReadOnlyList<int> indexesToChange)
 {
-    public IReadOnlyList<int> IndexesToToggle { get; } = indexesToToggle;
+    public IReadOnlyList<int> IndexesToChange { get; } = indexesToChange;
 }
